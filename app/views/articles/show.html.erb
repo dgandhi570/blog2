@@ -1,15 +1,18 @@
-<h1><%= @article.title %></h1>
-
-<p><%= @article.body %></p>
-<%= button_to "edit kroge? ", edit_article_path(@article), method: :get %>
-<li><%= link_to "Destroy", article_path(@article), data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  }, method: :get %></li>
-<h1><%= @article.title %></h1>
+<h1>Title: <%= @article.title %></h1>
 
 <p><%= @article.body %></p>
 
 
 
+<%= button_to "Edit Article? ", edit_article_path(@article), method: :get %>
 
+<%= button_to 'Destroy Article?', article_path(@article), method: :delete,
+  form: {data: {turbo_confirm: 'Are you sure?'}} %>
+
+
+<h2>Comments</h2>
+<%= render @article.comments %>
+
+
+  <h2>Add a comment:</h2>
+<%= render 'comments/form' %>
