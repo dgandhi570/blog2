@@ -1,6 +1,9 @@
 class ArticlesController < ApplicationController
   def index
     @articles = Article.all
+      if session[:user_id]
+        @user = User.find(session[:user_id])
+      end
   end
 
   def show

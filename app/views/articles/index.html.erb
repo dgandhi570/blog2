@@ -6,6 +6,10 @@
     background-image: url('https://mdbcdn.b-cdn.net/img/Photos/Others/images/76.webp');
     height: 100vh;
   "
+  <% if @user %>
+   <%= @user.email %>
+  <% end %>
+  
 <p> <b> Our Blog-App has <%= Article.public_count %> articles and counting!  </b></p>
 
 <ul>
